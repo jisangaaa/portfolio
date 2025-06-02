@@ -1,8 +1,9 @@
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Comic Sans MS', 'Segoe UI', cursive;
   margin: 0;
   padding: 0;
   color: #222;
+  font-size: 18px;
   background-color: #f8f8f8;
   background-image: linear-gradient(120deg, #e0f7fa, #f1f8e9);
   background-size: cover;
@@ -13,17 +14,19 @@ body {
 header {
   background: #111;
   color: white;
-  padding: 2rem 1rem;
+  padding: 2.5rem 1rem;
   text-align: center;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
 header h1 {
   margin: 0;
-  font-size: 2.5rem;
+  font-size: 3rem;
 }
 
 header p {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin-top: 0.5rem;
 }
 
@@ -31,6 +34,8 @@ nav a {
   margin: 0 1rem;
   color: #ddd;
   text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 
 nav a:hover {
@@ -39,7 +44,7 @@ nav a:hover {
 }
 
 .section {
-  padding: 3rem 1rem;
+  padding: 4rem 1rem;
   text-align: center;
 }
 
@@ -51,31 +56,46 @@ nav a:hover {
 .project-list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .project-card {
   background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
+  padding: 2rem;
+  border-radius: 20px;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 footer {
   text-align: center;
   padding: 2rem 0;
   background: #eee;
+  font-size: 0.9rem;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
 }
 
 @media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
   .project-card {
-    padding: 1rem;
+    padding: 1.2rem;
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  header p {
+    font-size: 1rem;
   }
 }
