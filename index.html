@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -22,9 +22,35 @@
     </div>
   </header>
 
-  <!-- 스크롤 안내 문구 -->
-  <div class="scroll-text" id="scrollText">처음이에요. 스크롤을 내려보세요.</div>
-  <div class="left-menu" id="leftMenu">왼쪽 메뉴</div>
+  <!-- 소개 섹션 -->
+  <section class="intro-section">
+    <div class="container intro-grid">
+      <div class="intro-item">
+        <span>👤 이름</span>
+        <p>김지상</p>
+      </div>
+      <div class="intro-item">
+        <span>🎂 생년월일</span>
+        <p>99.10.12</p>
+      </div>
+      <div class="intro-item">
+        <span>📞 연락처</span>
+        <p>010-3959-6881</p>
+      </div>
+      <div class="intro-item">
+        <span>✉️ 이메일</span>
+        <p>wltkd6881@naver.com</p>
+      </div>
+      <div class="intro-item">
+        <span>📍 위치</span>
+        <p>대한민국</p>
+      </div>
+      <div class="intro-item">
+        <span>🎓 학력</span>
+        <p>부산가톨릭대학교<br>(경영정보학)</p>
+      </div>
+    </div>
+  </section>
 
   <section id="about" class="section animate">
     <div class="container">
@@ -76,7 +102,6 @@
       document.body.style.backgroundPosition = `${x * 10}px ${y * 10}px`;
     }
 
-    // Scroll 등장 애니메이션
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -85,30 +110,6 @@
       });
     });
     document.querySelectorAll('.animate').forEach(el => observer.observe(el));
-
-    // 스크롤 텍스트 변경 & 왼쪽 메뉴 등장
-    const scrollText = document.getElementById("scrollText");
-    const leftMenu = document.getElementById("leftMenu");
-    window.addEventListener("scroll", () => {
-      const scrollY = window.scrollY;
-      if (scrollY < 300) {
-        scrollText.textContent = "처음이에요. 스크롤을 내려보세요.";
-      } else if (scrollY < 800) {
-        scrollText.textContent = "지금은 About Me 섹션입니다.";
-      } else if (scrollY < 1500) {
-        scrollText.textContent = "지금은 Projects 섹션입니다.";
-      } else if (scrollY < 2500) {
-        scrollText.textContent = "Contact 섹션 근처입니다.";
-      } else {
-        scrollText.textContent = "마지막이에요. 감사합니다!";
-      }
-
-      if (scrollY > 400 && scrollY < 1800) {
-        leftMenu.classList.add("show-left");
-      } else {
-        leftMenu.classList.remove("show-left");
-      }
-    });
   </script>
 </body>
 </html>
