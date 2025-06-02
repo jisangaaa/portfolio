@@ -88,6 +88,17 @@ footer {
   border-top-right-radius: 30px;
 }
 
+.animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (max-width: 600px) {
   body {
     font-size: 16px;
