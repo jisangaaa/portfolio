@@ -99,6 +99,42 @@ footer {
   transform: translateY(0);
 }
 
+/* 스크롤 텍스트와 왼쪽 메뉴 */
+.scroll-text {
+  position: fixed;
+  top: 250px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.4rem;
+  font-weight: bold;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: white;
+  color: #00796b;
+  z-index: 998;
+}
+
+.left-menu {
+  width: 150px;
+  height: 150px;
+  background-color: #00796b;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  top: 100px;
+  left: -200px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: 0.5s ease;
+  z-index: 997;
+}
+
+.left-menu.show-left {
+  left: 10px;
+  opacity: 1;
+}
+
 @media (max-width: 600px) {
   body {
     font-size: 16px;
@@ -114,5 +150,16 @@ footer {
 
   header {
     padding: 1rem;
+  }
+
+  .scroll-text {
+    font-size: 1.1rem;
+    padding: 8px 16px;
+  }
+
+  .left-menu {
+    width: 130px;
+    height: auto;
+    padding: 16px;
   }
 }

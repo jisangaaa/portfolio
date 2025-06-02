@@ -22,6 +22,10 @@
     </div>
   </header>
 
+  <!-- 스크롤 안내 문구 -->
+  <div class="scroll-text" id="scrollText">처음이에요. 스크롤을 내려보세요.</div>
+  <div class="left-menu" id="leftMenu">왼쪽 메뉴</div>
+
   <section id="about" class="section animate">
     <div class="container">
       <h2>About Me</h2>
@@ -72,6 +76,7 @@
       document.body.style.backgroundPosition = `${x * 10}px ${y * 10}px`;
     }
 
+    // Scroll 등장 애니메이션
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -79,8 +84,31 @@
         }
       });
     });
-
     document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+
+    // 스크롤 텍스트 변경 & 왼쪽 메뉴 등장
+    const scrollText = document.getElementById("scrollText");
+    const leftMenu = document.getElementById("leftMenu");
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      if (scrollY < 300) {
+        scrollText.textContent = "처음이에요. 스크롤을 내려보세요.";
+      } else if (scrollY < 800) {
+        scrollText.textContent = "지금은 About Me 섹션입니다.";
+      } else if (scrollY < 1500) {
+        scrollText.textContent = "지금은 Projects 섹션입니다.";
+      } else if (scrollY < 2500) {
+        scrollText.textContent = "Contact 섹션 근처입니다.";
+      } else {
+        scrollText.textContent = "마지막이에요. 감사합니다!";
+      }
+
+      if (scrollY > 400 && scrollY < 1800) {
+        leftMenu.classList.add("show-left");
+      } else {
+        leftMenu.classList.remove("show-left");
+      }
+    });
   </script>
 </body>
 </html>
