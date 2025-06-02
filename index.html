@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>김지상의 포트폴리오</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body onmousemove="handleMouseMove(event)">
+  <header>
+    <div class="container">
+      <h1>김지상</h1>
+      <p>Frontend Developer / AI Hobbyist</p>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="about" class="section">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>안녕하세요! 깔끔하고 기능적인 웹을 추구하는 개발자 김지상입니다.<br>
+      JavaScript, Python, HTML/CSS를 주로 사용하며, 현재는 다양한 프로젝트를 진행 중입니다.</p>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="project-list">
+        <div class="project-card">
+          <h3>AI 뉴스 요약기</h3>
+          <p>Python + Transformers로 만든 뉴스 자동 요약기. Flask로 웹 서비스 구현.</p>
+          <a href="https://github.com/jisangaaa">🔗 GitHub 보기</a>
+        </div>
+        <div class="project-card">
+          <h3>로또 분석기</h3>
+          <p>Python과 Pandas로 로또 데이터 분석 및 예측 시각화.</p>
+          <a href="https://github.com/jisangaaa">🔗 GitHub 보기</a>
+        </div>
+        <div class="project-card">
+          <h3>포트폴리오 사이트</h3>
+          <p>HTML/CSS로 만든 반응형 웹 포트폴리오. GitHub Pages에 배포.</p>
+          <a href="https://github.com/jisangaaa">🔗 GitHub 보기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>📧 wltkd6881@naver.com</p>
+      <p><a href="https://github.com/jisangaaa" target="_blank">🌐 GitHub 프로필</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 김지상</p>
+  </footer>
+
+  <script>
+    function handleMouseMove(e) {
+      const x = e.clientX / window.innerWidth - 0.5;
+      const y = e.clientY / window.innerHeight - 0.5;
+      document.body.style.backgroundPosition = `${x * 10}px ${y * 10}px`;
+    }
+  </script>
+</body>
+</html>
