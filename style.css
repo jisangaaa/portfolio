@@ -1,13 +1,18 @@
+/* 기본 스타일 */
 body {
   margin: 0;
   padding: 0;
   font-size: 18px;
-  background: linear-gradient(135deg, #d7eff2, #f0fdfd);
+  background: linear-gradient(135deg, #f5f0ff, #ffffff);
   color: #222;
   background-attachment: fixed;
   scroll-behavior: smooth;
-  transition: background-position 0.1s;
 }
+a {
+  scroll-behavior: smooth;
+  text-decoration: none;
+}
+/* 상단 고정 메뉴 */
 .sticky-header {
   background: #ffffff;
   padding: 1rem 1.5rem;
@@ -22,31 +27,65 @@ body {
   align-items: center;
   max-width: 1000px;
   margin: 0 auto;
+  flex-wrap: wrap;
 }
 .logo {
   font-size: 2rem;
   color: #00796b;
-  text-decoration: none;
+  font-weight: bold;
 }
-
-/* 왼쪽 고정 메뉴 */
+.top-nav a.nav-btn {
+  margin-left: 10px;
+  background: #00796b;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+.top-nav a.nav-btn:hover {
+  background: #004d40;
+}
+/* 햄버거 메뉴 */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: #00796b;
+  color: white;
+  padding: 10px 14px;
+  font-size: 20px;
+  border-radius: 10px;
+  z-index: 1001;
+  cursor: pointer;
+}
+/* 사이드 네비게이션 */
 .side-nav {
   position: fixed;
-  left: 20px;
-  top: 120px;
-  z-index: 998;
+  left: -200px;
+  top: 70px;
+  transition: 0.4s ease;
+  z-index: 1000;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+  padding: 1rem;
+}
+.side-nav.active {
+  left: 10px;
 }
 .side-nav ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 .side-nav li {
   margin: 1rem 0;
 }
 .side-nav a {
-  text-decoration: none;
-  color: #fff;
   background: #00796b;
+  color: white;
   padding: 10px 16px;
   border-radius: 12px;
   display: block;
@@ -56,7 +95,7 @@ body {
 .side-nav a:hover {
   background: #004d40;
 }
-
+/* 섹션 기본 스타일 */
 .section {
   padding: 4rem 1rem;
   text-align: center;
@@ -65,9 +104,10 @@ body {
   max-width: 800px;
   margin: 0 auto;
 }
+/* 소개 카드 */
 .intro-section {
   padding: 3rem 1rem;
-  background-color: #ffffffc7;
+  background-color: #e0fef5;
 }
 .intro-grid {
   display: grid;
@@ -79,9 +119,9 @@ body {
   border-radius: 16px;
   padding: 1.2rem;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, opacity 0.6s;
+  transition: transform 0.4s ease, opacity 0.8s, box-shadow 0.3s;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(40px);
 }
 .intro-card span {
   color: #00695c;
@@ -95,8 +135,9 @@ body {
 .animate.visible .intro-card {
   opacity: 1;
   transform: translateY(0);
+  animation: fadeInUp 1s ease-out;
 }
-
+/* 프로젝트 카드 */
 .project-list {
   display: flex;
   flex-direction: column;
@@ -108,12 +149,20 @@ body {
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(40px);
+}
+.animate.visible .project-card {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 1s ease-out;
 }
 .project-card:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
+/* 하단 */
 footer {
   text-align: center;
   padding: 2rem 0;
@@ -122,13 +171,23 @@ footer {
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
 }
-.animate {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease-out;
+/* 애니메이션 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.animate.visible {
-  opacity: 1;
-  transform: translateY(0);
+/* 반응형 */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  .top-nav {
+    display: none;
+  }
 }
-
