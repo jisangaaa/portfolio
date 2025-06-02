@@ -2,8 +2,9 @@
 body {
   margin: 0;
   padding: 0;
-  font-size: 18px;
-  background: linear-gradient(135deg, #f5f0ff, #ffffff);
+  font-size: 20px;
+  font-family: 'Gowun Dodum', sans-serif;
+  background: linear-gradient(135deg, #f5f0ff, #d3b9fc);
   color: #222;
   background-attachment: fixed;
   scroll-behavior: smooth;
@@ -14,7 +15,7 @@ a {
 }
 /* 상단 고정 메뉴 */
 .sticky-header {
-  background: #ffffff;
+  background: #f0f0f0;
   padding: 1rem 1.5rem;
   position: sticky;
   top: 0;
@@ -107,7 +108,7 @@ a {
 /* 소개 카드 */
 .intro-section {
   padding: 3rem 1rem;
-  background-color: #e0fef5;
+  background-color: #e9e1ee;
 }
 .intro-grid {
   display: grid;
@@ -191,3 +192,20 @@ footer {
     display: none;
   }
 }
+/* Info 섹션 중앙 정렬 */
+#info {
+  text-align: center;
+}
+
+#info h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+#info .intro-grid {
+  justify-content: center;
+  align-items: center;
+}
+
+
+
