@@ -123,6 +123,8 @@ a {
   transition: transform 0.4s ease, opacity 0.8s, box-shadow 0.3s;
   opacity: 0;
   transform: translateY(40px);
+
+  min-height: 70px;
 }
 .intro-card span {
   color: #00695c;
@@ -166,7 +168,7 @@ a {
 /* 하단 */
 footer {
   text-align: center;
-  padding: 2rem 0;
+  padding: 1rem 0;
   background: #c8e6c9;
   font-size: 0.9rem;
   border-top-left-radius: 30px;
@@ -206,6 +208,9 @@ footer {
   justify-content: center;
   align-items: center;
 }
-
-
-
+.intro-card:hover,
+.project-card:hover {
+  transform: translateY(-5px) scale(1.02) rotateZ(0.3deg);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+}
