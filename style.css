@@ -117,7 +117,7 @@ a {
 }
 .intro-card {
   background-color: #e0f7fa;
-  border-radius: 16px;
+  border-radius: 30px;
   padding: 1.2rem;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   transition: transform 0.4s ease, opacity 0.8s, box-shadow 0.3s;

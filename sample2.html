@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>김지상의 포트폴리오</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    .intro {
+    display: grid;
+    grid-template-columns: repeat(3, 280px); /* 카드 너비 고정 */
+    gap: 20px;
+    justify-content: center;     /* ✅ 전체 그리드 중앙 정렬 */
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 30px;
+    border-bottom: 0px solid #ddd;
+    max-width: 1000px;           /* ✅ 그리드 최대 폭 제한 */
+    margin: 0 auto;              /* ✅ 가운데 정렬 핵심: auto margin */
+    }
+    .intro-card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    padding: 15px 10px;
+    width: 100%;
+    max-width: 280px;
+    height: 100px; /* ✅ 카드 높이 고정 */
+    display: flex;          /* ✅ 내부 중앙 정렬 */
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 10px 5px rgba(0,0,0,0.05);
+    box-sizing: border-box;
+    }
+    .intro-card span {
+      font-weight: bold;
+      font-size: 1rem;
+      display: block;
+      color: #2c3e50;
+    }
+    .intro-card p {
+      margin: 5px 0 0;
+      font-size: 0.95rem;
+      color: #333;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 30px;
+      gap: 50px;
+    }
+    .flip-card {
+      background-color: transparent;
+      width: 300px;
+      height: 200px;
+      perspective: 1000px;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .flip-card-front {
+      background-color: #ffffff;
+      color: #333;
+    }
+    .flip-card-back {
+      background-color: #34495e;
+      color: white;
+      transform: rotateY(180deg);
+    }
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 30px;
+    }
+
+    .intro-card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    padding: 15px 10px;
+    width: 100%;
+    max-width: 280px;
+    min-height: 100px;
+    text-align: center;
+    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* ✅ 부드러운 전환 */
+    cursor: pointer; /* 클릭 가능 느낌 */
+    }
+
+    .intro-card:active {
+    transform: scale(1.05); /* ✅ 클릭 시 약간 확대 */
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2); /* ✅ 클릭 시 그림자 강조 */
+    }
+    .intro-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 12px rgba(0, 0, 0, 0.15);
+    }
+    html {
+    scroll-behavior: smooth;
+    }
+    .brief-intro {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1.1rem;
+    color: #444;
+    }
+    .navbar {
+    background-color: #2c3e50;
+    padding: 10px 0;
+    position: sticky;   /* 스크롤해도 상단 고정 */
+    top: 0;
+    z-index: 1000;
+    }
+
+    .navbar ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+    padding-right: 200px;
+    }
+
+    .navbar li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+    }
+
+    .navbar li a:hover {
+    color: #70cfff;  /* 호버 시 색 변화 */
+    }
+
+    @media (max-width: 768px) {
+      .intro {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 500px) {
+      .intro {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+    <ul>
+        <li><a href="#intro">소개</a></li>
+        <li><a href="#projects">프로젝트</a></li>
+        <li><a href="#contact">연락처</a></li>
+    </ul>
+    </nav>
+    <h1>김지상의 포트폴리오</h1>
+    <p>프론트엔드 & 백엔드 통합 개발자</p>
+  </header>
+  <section class="brief-intro">
+    사용자의 입장에서 생각하며<br>
+    끝까지 책임지는 열정 있는 개발자 <strong>김지상</strong>입니다.
+  </section>
+
+  <section id="intro-title" style="text-align:center; padding-top:40px;">
+   <h2>🧾 My Info</h2>
+  </section>
+  <section class="intro" id="intro">
+    <div class="intro-card"><span>👤 이름</span><p>김지상<br>Kim Ji Sang</p></div>
+    <div class="intro-card"><span>🎂 생년월일</span><p>1999.10.12</p></div>
+    <div class="intro-card"><span>📞 연락처</span><p>010-3959-6881</p></div>
+    <div class="intro-card"><span>✉️ 이메일</span><p>wltkd6881@naver.com</p></div>
+    <div class="intro-card"><span>📍 주소</span><p>부산광역시 연제구</p></div>
+    <div class="intro-card"><span>🎓 학력</span><p>부산가톨릭대학교<br>(경영정보학)</p></div>
+  </section>
+
+  <section id="projects-title" style="text-align:center; padding-top:40px;">
+    <h2>💼 Projects</h2>
+  </section>
+
+  <div class="container" id="projects">
+    <!-- 프로젝트 카드 1 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h3>📚 BookRentalShop</h3>
+          <p>Flask & Oracle DB 기반<br>도서 대여 관리 시스템</p>
+        </div>
+        <div class="flip-card-back">
+          <p>
+            도서 검색, 대여, 반납 등 핵심 기능 구현<br>
+            Flask 백엔드 + Oracle 데이터 연동<br><br>
+            🔗 
+            <a href="https://github.com/jisangaaa/dev_nodejs_react" target="_blank" style="color:#fff; text-decoration:underline;">
+              프로젝트 보기
+            </a><br>
+            📂 
+            <a href="https://github.com/jisangaaa/dev_nodejs_react/blob/main/vite_react/vite_02/src/pages/Ex14.jsx" target="_blank" style="color:#fff; text-decoration:underline;">
+              GitHub 소스 코드
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 프로젝트 카드 2 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h3>생필품 소비자 가격비교 프로젝트</h3>
+          <p>React 실습 기반<br>데이터 크롤링 및 DB 연동</p>
+        </div>
+        <div class="flip-card-back">
+          <p>
+            직관적인 UI, 역할 기반 로그인<br>
+            Oracle DB 연동을 통한 가격비교<br>
+            게시판 커뮤니티 활성화<br><br>
+            🔗 
+            <a href="https://github.com/BSEom/teamP_t1" target="_blank" style="color:#fff; text-decoration:underline;">
+              프로젝트 보기
+            </a><br>
+            📂 
+            <a href="https://github.com/BSEom/teamP_t1/tree/main" target="_blank" style="color:#fff; text-decoration:underline;">
+              GitHub 소스 코드
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 프로젝트 카드 3 -->
+    <div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+        <h3>🧼 생활용품 재고 관리</h3>
+        <p>Spring Boot 기반 재고 관리 시스템<br>Oracle DB 연동</p>
+        </div>
+        <div class="flip-card-back">
+        <p>
+            Spring Boot + JPA를 사용한 CRUD 구현<br>
+            관리자 로그인 및 상품 등록 기능 포함<br><br>
+            🔗 
+            <a href="https://github.com/jisangaaa/inventory-manager" target="_blank" style="color:#fff; text-decoration:underline;">
+            프로젝트 보기
+            </a><br>
+            📂 
+            <a href="https://github.com/jisangaaa/inventory-manager/tree/main/src" target="_blank" style="color:#fff; text-decoration:underline;">
+            GitHub 소스 코드
+            </a>
+        </p>
+        </div>
+    </div>
+    </div>
+
+    <!-- 프로젝트 카드 4 -->
+    <div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+        <h3>⏱️ 웹 초시계</h3>
+        <p>HTML, CSS, JS로 만든<br>간단한 웹 기반 초시계</p>
+        </div>
+        <div class="flip-card-back">
+        <p>
+            시작/정지/리셋 버튼으로 시간 측정<br>
+            실시간 경과 시간 표시<br><br>
+            🔗 
+            <a href="https://github.com/jisangaaa/inventory-manager" target="_blank" style="color:#fff; text-decoration:underline;">
+            프로젝트 보기
+            </a><br>
+            📂 
+            <a href="https://github.com/jisangaaa/inventory-manager/tree/main/src" target="_blank" style="color:#fff; text-decoration:underline;">
+            GitHub 소스 코드
+            </a>
+        </p>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <footer id="contact">
+    © 2025 김지상 | https://github.com/jisangaaa/jisangaaa
+  </footer>
+</body>
+</html>
