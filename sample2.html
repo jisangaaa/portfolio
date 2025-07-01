@@ -169,7 +169,14 @@
     .navbar li a:hover {
     color: #70cfff;  /* 호버 시 색 변화 */
     }
-
+    #contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 60px;
+    padding: 30px;
+    }
     @media (max-width: 768px) {
       .intro {
         grid-template-columns: repeat(2, 1fr);
@@ -186,8 +193,8 @@
   <header>
     <nav class="navbar">
     <ul>
-        <li><a href="#intro">소개</a></li>
-        <li><a href="#projects">프로젝트</a></li>
+        <li><a href="#intro-title">소개</a></li>
+        <li><a href="#projects-title">프로젝트</a></li>
         <li><a href="#contact">연락처</a></li>
     </ul>
     </nav>
@@ -269,13 +276,13 @@
     <div class="flip-card">
     <div class="flip-card-inner">
         <div class="flip-card-front">
-        <h3>🧼 생활용품 재고 관리</h3>
-        <p>Spring Boot 기반 재고 관리 시스템<br>Oracle DB 연동</p>
+        <h3>📄 Python Selenium 자동화</h3>
+        <p>Selenium을 활용한<br>웹 자동화 스크립트 프로젝트</p>
         </div>
         <div class="flip-card-back">
         <p>
-            Spring Boot + JPA를 사용한 CRUD 구현<br>
-            관리자 로그인 및 상품 등록 기능 포함<br><br>
+            웹 브라우저 자동화로 반복 작업을 효율화<br>
+            로그인, 페이지 탐색, 버튼 클릭 등 시나리오 구현<br><br>
             🔗 
             <a href="https://github.com/jisangaaa/inventory-manager" target="_blank" style="color:#fff; text-decoration:underline;">
             프로젝트 보기
@@ -313,9 +320,16 @@
     </div>
     </div>
   </div>
+    <section id="contact">
+    <h2>Contact</h2>
+    <p>문의사항이 있으시면 아래 연락처로 편하게 연락주세요.</p>
 
+    <p>📞 <a href="tel:01039596881">010-3959-6881</a></p>
+    <p>📧 <a href="mailto:wltkd6881@naver.com">wltkd6881@naver.com</a></p>
+    <p>🌐 <a href="https://github.com/jisangaaa/portfolio" target="_blank">GitHub 프로필</a></p>
+    </section>
   <footer id="contact">
-    © 2025 김지상 | https://github.com/jisangaaa/jisangaaa
+    © 2025. Kim JI Sang. All rights reserved.
   </footer>
 </body>
 </html>
